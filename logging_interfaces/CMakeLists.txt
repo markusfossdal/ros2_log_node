@@ -8,6 +8,7 @@ endif()
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 find_package(ament_cmake REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
 find_package(std_msgs REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
@@ -15,7 +16,5 @@ rosidl_generate_interfaces(${PROJECT_NAME}
     "srv/Logentry.srv"
     DEPENDENCIES std_msgs
     )
-
-
 
 ament_package()

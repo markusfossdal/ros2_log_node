@@ -11,6 +11,8 @@ Logger_node::Logger_node() : Node("logging_node") {
   // Publisher
   this->log_publisher_ = this->create_publisher<
                          logging_interfaces::msg::Logentry>("log_topic", 1);
+
+    
 }
 
 void Logger_node::log_entry_callback(
