@@ -11,8 +11,8 @@ find_package(ament_cmake REQUIRED)
 find_package(std_msgs REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
-    "msg/Sensor.msg"
-    "srv/SetNedToPos.srv"
+    "msg/Logentry.msg"
+    "srv/Logentry.srv"
     DEPENDENCIES std_msgs
     )
 
