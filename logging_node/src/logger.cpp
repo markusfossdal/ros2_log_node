@@ -9,10 +9,8 @@ Logger_node::Logger_node() : Node("logging_node") {
                                  std::placeholders::_1, std::placeholders::_2));
 
   // Publisher
-  this->log_publisher_ = this->create_publisher<
-                         logging_interfaces::msg::Logentry>("log_topic", 1);
-
-    
+  this->log_publisher_ =
+      this->create_publisher<logging_interfaces::msg::Logentry>("log_topic", 1);
 }
 
 void Logger_node::log_entry_callback(
@@ -44,6 +42,9 @@ void Logger_node::log_entry_callback(
 
   // service response
   response->out = "[" + std::to_string(now_s_c) + "." +
-                  std::to_string(now_ns_c) + "]: " + request->user +
-                  ": " + request->entry;
+                  std::to_string(now_ns_c) + "]: " + request->user + ": " +
+                  request->entry;
+
+  // Log warning
+  RCLCPP_INFO(this->get_logger(), "User: %s - Log entry: %s", request->user.c_str(), request->entry.c_str());
 }
